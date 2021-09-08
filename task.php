@@ -107,6 +107,13 @@ print("#####q10#####" . PHP_EOL);
 $foods = ["いか", "たこ", "うに", "しゃけ", "うにぎり", "うに軍艦", "うに丼", "高級なうに"];
 
 // 以下に回答を記載
+foreach ($foods as $food) {
+    if (preg_match('/うに/', $food)) {
+        echo '好物です' . PHP_EOL;
+    } else {
+        echo 'まぁまぁ好きです' . PHP_EOL;
+    }
+}
 
 echo PHP_EOL;
 
@@ -114,8 +121,24 @@ print("#####q11#####" . PHP_EOL);
 $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]];
 
 // 以下に回答を記載
+$sports2 = [];
+foreach ($sports as $sport) {
+    if (is_array($sport)) {
+        $sports2 = array_merge($sports2, $sport);
+    } else {
+        $sports2[] = $sport;
+    }
+}
+$sports2 = array_unique($sports2);
+$sports2 = array_values($sports2);
+print_r("ユーザーの趣味一覧" . PHP_EOL);
+foreach ($sports2 as $key => $sport) {
+    $num = $key + 1;
+    print_r("NO" . "$num" . " " . "$sport" . PHP_EOL);
+}
 
 echo PHP_EOL;
+
 
 print("#####q12#####" . PHP_EOL);
 $data = ["user" => ["name" => "satou", "age" => 33]];
