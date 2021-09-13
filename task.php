@@ -310,16 +310,16 @@ class Zoo
         $this->location = $$zoo_location;
         $this->fee = $zoo_fee;
     }
-    function info_entry_fee()
+    function info_entry_fee(HUMAN $human)
     {
-        if ($this->age <= 5) {
-            echo  $this->name . "さんの入場料金は" . $this->fee["infant"] . "円です" . PHP_EOL;
-        } elseif ($this->age <= 12) {
-            echo  $this->name . "さんの入場料金は" . $this->fee["children"] . "円です" . PHP_EOL;
-        } elseif ($this->age <= 64) {
-            echo  $this->name . "さんの入場料金は" . $this->fee["adult"] . "円です" . PHP_EOL;
-        } elseif ($this->age <= 120) {
-            echo  $this->name . "さんの入場料金は" . $this->fee["senior"] . "円です" . PHP_EOL;
+        if ($human->age <= 5) {
+            echo  $human->name . "さんの入場料金は" . $this->fee["infant"] . "円です" . PHP_EOL;
+        } elseif ($human->age <= 12) {
+            echo  $human->name . "さんの入場料金は" . $this->fee["children"] . "円です" . PHP_EOL;
+        } elseif ($human->age <= 64) {
+            echo $human->name . "さんの入場料金は" . $this->fee["adult"] . "円です" . PHP_EOL;
+        } elseif ($human->age <= 120) {
+            echo  $human->name . "さんの入場料金は" . $this->fee["senior"] . "円です" . PHP_EOL;
         }
     }
 }
